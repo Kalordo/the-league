@@ -82,7 +82,7 @@ class Team {
             'description' => $this->description,
             'logo' => $this->logo,
             'logo_url' => $this->logoUrl,
-            'logo_alt' -> $this->logoAlt
+            'logo_alt' => $this->logoAlt
         ];
     }
 }

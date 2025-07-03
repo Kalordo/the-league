@@ -22,5 +22,5 @@ require "controller/PlayersController.php";
 require "controller/TeamsController.php";
 
 /* SERVICES */
-require "config/databse.php";
+require "config/database.php";
 require "config/Router.php";

@@ -8,7 +8,15 @@ class Router
     private PlayersController $pc;
     private MatchesController $mc;
     
-    // index() is the main function to initiate 
+    // index() is the default name of the main function to initiate the ROUETR
+    
+    public function __construct()
+    {
+        $this->hc = new HomeController();
+        $this->tc = new TeamsController();
+        $this->pc = new PlayersController();
+        $this->mc = new MatchesController();
+    }
     
     public function handleRequest(array $get): void
     {

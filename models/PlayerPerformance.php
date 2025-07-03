@@ -10,10 +10,10 @@ class PlayerPerformance {
 
         public function __construct(int $id, int $player, int $game, int $points, int $assists) {
         $this->id = $id;
-        $this->nickname = $nickname;
-        $this->bio = $bio;
-        $this->portrait = $portrait;
-        $this->team = $team;
+        $this->player = $player;
+        $this->game = $game;
+        $this->points = $points;
+        $this->assists = $assists;
     }
 
     public function getId(): int {
@@ -63,7 +63,7 @@ class PlayerPerformance {
             'player' => $this->player,
             'game' => $this->game,
             'points' => $this->points,
-            'assists' -> $this->assists
+            'assists' => $this->assists
         ];
     }
 }
