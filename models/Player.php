@@ -56,7 +56,7 @@ class Player {
             'bio' => $this->bio,
             'nickname' => $this->nickname,
             'portrait' => $this->portrait,
-            'team' -> $this->team
+            'team' => $this->team
         ];
     }
 }

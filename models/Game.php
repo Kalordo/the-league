@@ -58,4 +58,17 @@ class Games {
     public function setWinner(int $winner): void {
         $this->winner = $winner;
     }
+    
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'date' => $this->date,
+            'team_1' => $this->team_1,
+            'team_2' => $this->team_2,
+            'winner' => $this->winner
+        ];
+    }
+}
 }
