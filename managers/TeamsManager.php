@@ -44,8 +44,7 @@
                 $team['description'],
                 $team['logoId'],
                 (int) $team['id']
-                );
-            
+            );                     
             return $teamOne;
             
         }
@@ -58,8 +57,8 @@
             VALUES (:email, :description, :logoId)");
             $parameters = [
                 'email' => $_GET['email'],
-                'description' => $_GET ['description'],
-                'logoId' => $_GET ['logoId'],
+                'description' => $_GET['description'],
+                'logoId' => $_GET['logoId'],
                 ];
             $query->execute($parameters);
         }
@@ -74,8 +73,8 @@
             ");
             $parameters = [
                 'email' => $_GET['email'],
-                'description' => $_GET ['description'],
-                'logoId' => $_GET ['logoId'],
+                'description' => $_GET['description'],
+                'logoId' => $_GET['logoId'],
                 ];
             $query->execute($parameters);
         }
