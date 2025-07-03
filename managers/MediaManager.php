@@ -17,13 +17,13 @@
             
             $mediaAll =[];
             
-            foreach($medias as $mediaObject)
+            foreach($medias as $media)
             {
                 $mediaObject = new Media($media['url'], $media['alt']);
                 $mediaObject->setId($media['id']);
                 $mediaAll[] = $mediaObject;
             }
-            return $teamAll;
+            return $mediaAll;
         }
         
         
@@ -49,21 +49,6 @@
             
             return $mediaObject;
         }
-        
-        
-        public function createTeam(Team $team) : void
-        {
-            $query = $this->db->prepare("
-            INSERT INTO teams (email, description, logoId)
-            VALUES (:email, :description, :logoId)");
-            $parameters = [
-                'email' => $GET['email'],
-                'description' => $GET ['description'],
-                'logoId' => $GET ['logoId'],
-                ];
-            $query->execute($parameters);
-        }
-        
         
         public function updateMedia(Media $media): void
         {

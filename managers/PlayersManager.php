@@ -17,7 +17,7 @@ class PlayersManager extends AbstractManager {
                 $playerResult['nickname'],
                 $playerResult['bio'],
                 $playerResult['portrait'],
-                $playerResult['team']
+                (int) $playerResult['team']
             );
         }
 
@@ -35,7 +35,7 @@ class PlayersManager extends AbstractManager {
                 $playerResult['nickname'],
                 $playerResult['bio'],
                 $playerResult['portrait'],
-                $playerResult['team']
+                (int) $playerResult['team']
             );
         }
         return null;

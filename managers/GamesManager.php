@@ -6,16 +6,17 @@ class GamesManager extends AbstractManager {
     }
 
     public function findAll(): array {
-        $result = $this->db->query("SELECT * FROM games");
+        $result = $this->db->query("SELECT * FROM games ORDER BY date DESC");
         $gamesResult = $result->fetchAll(PDO::FETCH_ASSOC);
 
         $games = [];
 
         foreach ($gamesResult as $gameResult) {
+            $date = new DateTime($gameResult['date']);
             $games[] = new Games(
                 (int) $gameResult['id'],
                 $gameResult['name'],
-                $gameResult['date'],
+                $date,
                 (int) $gameResult['team_1'],
                 (int) $gameResult['team_2'],
                 (int) $gameResult['winner']
@@ -31,10 +32,11 @@ class GamesManager extends AbstractManager {
         $gameResult = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($gameResult) {
+            $date = new DateTime($gameResult['date']);
             return new Games(
                 (int) $gameResult['id'],
                 $gameResult['name'],
-                $gameResult['date'],
+                $date,
                 (int) $gameResult['team_1'],
                 (int) $gameResult['team_2'],
                 (int) $gameResult['winner']

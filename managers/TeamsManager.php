@@ -16,12 +16,12 @@
             
             $teamAll =[];
             foreach($teams as $team){
-                $teamAll[]=new Team(
-                    
-                    $team['email'],
-                    $team['description'],
-                    $team['logoId']
-                );
+                $teamObject = new Team();
+                $teamObject->setId($team['id']);
+                $teamObject->setName($team['name']);
+                $teamObject->setDescription($team['description']);
+                $teamObject->setIdLogo($team['logo']);
+                $teamAll[] = $teamObject;
             }
             
             return $teamAll;
@@ -37,46 +37,17 @@
             
             $query->execute($parameters);
             
-            $team = $query->fetch(PDO::FETCH_ASSOC);
+            if (!$team) {
+            return null;
+            }
             
-            $teamOne = new Team(
-                $team['email'],
-                $team['description'],
-                $team['logoId'],
-                (int) $team['id']
-            );                     
-            return $teamOne;
+            $teamObject = new Team();
+            $teamObject->setId($team['id']);
+            $teamObject->setName($team['name']);
+            $teamObject->setDescription($team['description']);
+            $teamObject->setIdLogo($team['logo']);
+            
+            return $teamObject;
             
         }
-        
-        
-        public function createTeam(Team $team) : void
-        {
-            $query = $this->db->prepare("
-            INSERT INTO teams (email, description, logoId)
-            VALUES (:email, :description, :logoId)");
-            $parameters = [
-                'email' => $_GET['email'],
-                'description' => $_GET['description'],
-                'logoId' => $_GET['logoId'],
-                ];
-            $query->execute($parameters);
-        }
-        
-        
-        public function updateTeam(Team $team): void
-        {
-            $query = $this->db->prepare("
-                UPDATE teams
-                SET email = :email, description = :description, logoId = :logoId
-                WHERE id = :id
-            ");
-            $parameters = [
-                'email' => $_GET['email'],
-                'description' => $_GET['description'],
-                'logoId' => $_GET['logoId'],
-                ];
-            $query->execute($parameters);
-        }
-        
     }

@@ -7,7 +7,7 @@ class Player {
     private string $portrait;
     private string $team;
 
-    public function __construct(int $id, string $nickname, string $bio, string $portrait, string $team) {
+    public function __construct(int $id, string $nickname, string $bio, string $portrait, int $team) {
         $this->id = $id;
         $this->nickname = $nickname;
         $this->bio = $bio;
@@ -43,10 +43,10 @@ class Player {
         $this->portrait = $portrait;
     }
 
-    public function getTeam(): string {
+    public function getTeam(): int {
         return $this->team;
     }
-    public function setTeam(string $team): void {
+    public function setTeam(int $team): void {
         $this->team = $team;
     }
     public function toArray(): array

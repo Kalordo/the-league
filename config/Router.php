@@ -37,28 +37,31 @@ class Router
             }
         } else if ($get['route'] === 'players')
         {
-            $this->tc->index();
+            $this->pc->index();
         } else if ($get['route'] === 'player')
         {
             if (isset($get['id']))
             {
-                $this->tc->show((int)$get['id']);
+                $this->pc->show((int)$get['id']);
             } else
             {
-                $this->tc->index();
+                $this->pc->index();
             }
         } else if ($get['route'] === 'matches')
         {
-            $this->tc->index();
+            $this->mc->index();
         } else if ($get['route'] === 'match')
         {
             if (isset($get['id']))
             {
-                $this->tc->show((int)$get['id']);
+                $this->mc->show((int)$get['id']);
             } else
             {
-                $this->tc->index();
+                $this->mc->index();
             }
+        } else
+        {
+            $this->hc->index();
         }
     }
 }
