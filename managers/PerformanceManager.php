@@ -1,15 +1,5 @@
 <?php
 
-require_once "../models/PlayerPerformance.php";
-
-abstract class AbstractManager {
-    protected PDO $db;
-
-    public function __construct() {
-        $this->db = new PDO("mysql:host=localhost;dbname=ton_base", "user", "password");
-    }
-}
-
 class PlayerPerformanceManager extends AbstractManager {
 
     public function __construct() {
