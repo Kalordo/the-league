@@ -9,21 +9,19 @@
         public function findAllTeam(): array 
         {
             
-            $query = $db->prepare('SELECT * FROM teams');
-            
+            $query = $this->db->prepare('SELECT * FROM teams');
             $query->execute();
             
             $teams = $query->fetchAll(PDO::FETCH_ASSOC);
             
             $teamAll =[];
-            
             foreach($teams as $team){
                 $teamAll[]=new Team(
                     
-                    $team['name'],
+                    $team['email'],
                     $team['description'],
                     $team['logoId']
-                    );
+                );
             }
             
             return $teamAll;
@@ -41,7 +39,7 @@
             
             $team = $query->fetch(PDO::FETCH_ASSOC);
             
-            $teamOne = new User(
+            $teamOne = new Team(
                 $team['email'],
                 $team['description'],
                 $team['logoId']
@@ -71,7 +69,7 @@
         {
             $query = $this->db->prepare("
                 UPDATE teams
-                SET email = :email, :description = :description, logoId = :logoId
+                SET email = :email, description = :description, logoId = :logoId
                 WHERE id = :id
             ");
             $parameters = [
