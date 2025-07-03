@@ -43,6 +43,15 @@ class Media
         {
             $this->alt = $alt;
         }
+        
+        public function toArray(): array
+        {
+            return [
+                'id' => $this->id,
+                'url' => $this->url,
+                'alt' => $this->alt
+            ];
+        }
       
     } 
     

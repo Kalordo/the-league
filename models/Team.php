@@ -8,13 +8,11 @@ class Team {
     private int $logo;
     private ?string $logoUrl = null;
     private ?string $logoAlt = null;
-    private array $players = [];
-    private int $wins = 0;
     
     public function __construct() 
     {
         
-    };
+    }
     
     public function getId(): ?int
     {

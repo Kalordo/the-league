@@ -28,7 +28,7 @@ class PlayerPerformance {
         return $this->player;
     }
 
-    public function setplayer(int $player): void {
+    public function setPlayer(int $player): void {
         $this->player = $player;
     }
 
@@ -36,7 +36,7 @@ class PlayerPerformance {
         return $this->game;
     }
 
-    public function setgame(int $game): void {
+    public function setGame(int $game): void {
         $this->game = $game;
     }
 
@@ -44,7 +44,7 @@ class PlayerPerformance {
         return $this->points;
     }
 
-    public function setpoints(int $points): void {
+    public function setPoints(int $points): void {
         $this->points = $points;
     }
 
@@ -52,7 +52,18 @@ class PlayerPerformance {
         return $this->assists;
     }
 
-    public function setassists(int $assists): void {
+    public function setAssists(int $assists): void {
         $this->assists = $assists;
+    }
+    
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'player' => $this->player,
+            'game' => $this->game,
+            'points' => $this->points,
+            'assists' -> $this->assists
+        ];
     }
 }
