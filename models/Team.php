@@ -21,7 +21,7 @@ class Team {
     
     public function setId(?int $id): void
     {
-        return $this->id = $id;
+        $this->id = $id;
     }
     
     public function getName(): string 
@@ -31,7 +31,7 @@ class Team {
     
     public function setName(string $name): void 
     {
-        return $this->name = $name;
+        $this->name = $name;
     }
 
     public function getDescription(): string 
@@ -41,7 +41,7 @@ class Team {
     
     public function setDescription(string $description): void 
     {
-        return $this->description = $description;
+        $this->description = $description;
     }
 
     public function getIdLogo(): int 
@@ -51,7 +51,7 @@ class Team {
     
     public function setIdLogo(int $logo): void
     {
-        return $this->logo = $logo;
+        $this->logo = $logo;
     }
 
     public function getLogoUrl(): ?string 
@@ -61,7 +61,7 @@ class Team {
     
     public function setLogoUrl(?string $logoUrl): void
     {
-        return $this->logoUrl = $logoUrl;
+        $this->logoUrl = $logoUrl;
     }
 
     public function getLogoAlt(): ?string 
@@ -71,7 +71,7 @@ class Team {
     
     public function setLogoAlt(?string $logoAlt): void
     {
-        return $this->logoAlt = $logoAlt;
+        $this->logoAlt = $logoAlt;
     }
 
     public function toArray(): array

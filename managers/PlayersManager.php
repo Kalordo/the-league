@@ -1,6 +1,6 @@
 <?php 
 
-class PlayersManagers extends AbstractManager {
+class PlayersManager extends AbstractManager {
     public function __construct() {
         parent::__construct();
     }
