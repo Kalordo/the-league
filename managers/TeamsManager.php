@@ -13,11 +13,11 @@
             
             $query->execute();
             
-            $team = $query->fetchAll(PDO::FETCH_ASSOC);
+            $teams = $query->fetchAll(PDO::FETCH_ASSOC);
             
             $teamAll =[];
             
-            foreach($team as $team){
+            foreach($teams as $team){
                 $teamAll[]=new Team(
                     
                     $team['name'],
