@@ -9,7 +9,7 @@
         public function findAllMedia(): array 
         {
             
-            $query = $db->prepare('SELECT * FROM media');
+            $query = $this->db->prepare('SELECT * FROM media ORDER BY id');
             
             $query->execute();
             
@@ -17,21 +17,19 @@
             
             $mediaAll =[];
             
-            foreach($medias as $mediaObject){
-                $mediaAll[]=new Team(
-                    
-                    $media['name'],
-                    $media['description'],
-                    $media['logoId']
-                    );
+            foreach($medias as $mediaObject)
+            {
+                $mediaObject = new Media($media['url'], $media['alt']);
+                $mediaObject->setId($media['id']);
+                $mediaAll[] = $mediaObject;
             }
-            
             return $teamAll;
         }
         
         
-        public function findOneTeam(int $id){
-            $query = $this->db->prepare('SELECT * FROM teams Where id = :id');
+        public function findOneMedia(int $id): ?Media
+        {
+            $query = $this->db->prepare('SELECT * FROM media Where id = :id');
             
             $parameters = [
                 'id' => $id
@@ -39,17 +37,17 @@
             
             $query->execute($parameters);
             
-            $team = $query->fetch(PDO::FETCH_ASSOC);
+            $media = $query->fetch(PDO::FETCH_ASSOC);
             
-            $teamOne = new User(
-                $team['email'],
-                $team['description'],
-                $team['logoId']
-                );
-            $teamOne->id = $team['id'];
+            if (!$media)
+            {
+                return null;
+            }
             
-            return $teamOne;
+            $mediaObject = new Media($media['url'], $media['alt']);
+            $mediaObject->setId($media['id']);
             
+            return $mediaObject;
         }
         
         
@@ -67,17 +65,16 @@
         }
         
         
-        public function updateTeam(Team $team): void
+        public function updateMedia(Media $media): void
         {
             $query = $this->db->prepare("
-                UPDATE teams
-                SET email = :email, :description = :description, logoId = :logoId
+                UPDATE media
+                SET url = :url, alt = :alt
                 WHERE id = :id
             ");
             $parameters = [
-                'email' => $GET['email'],
-                'description' => $GET ['description'],
-                'logoId' => $GET ['logoId'],
+                'url' => $_GET['url'],
+                'alt' => $_GET ['alt']
                 ];
             $query->execute($parameters);
         }
