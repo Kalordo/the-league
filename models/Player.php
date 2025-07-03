@@ -49,4 +49,14 @@ class Player {
     public function setTeam(string $team): void {
         $this->team = $team;
     }
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'bio' => $this->bio,
+            'nickname' => $this->nickname,
+            'portrait' => $this->portrait,
+            'team' -> $this->team
+        ];
+    }
 }
