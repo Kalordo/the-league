@@ -42,9 +42,9 @@
             $teamOne = new Team(
                 $team['email'],
                 $team['description'],
-                $team['logoId']
+                $team['logoId'],
+                (int) $team['id']
                 );
-            $teamOne->id = $team['id'];
             
             return $teamOne;
             
@@ -57,9 +57,9 @@
             INSERT INTO teams (email, description, logoId)
             VALUES (:email, :description, :logoId)");
             $parameters = [
-                'email' => $GET['email'],
-                'description' => $GET ['description'],
-                'logoId' => $GET ['logoId'],
+                'email' => $_GET['email'],
+                'description' => $_GET ['description'],
+                'logoId' => $_GET ['logoId'],
                 ];
             $query->execute($parameters);
         }
@@ -73,9 +73,9 @@
                 WHERE id = :id
             ");
             $parameters = [
-                'email' => $GET['email'],
-                'description' => $GET ['description'],
-                'logoId' => $GET ['logoId'],
+                'email' => $_GET['email'],
+                'description' => $_GET ['description'],
+                'logoId' => $_GET ['logoId'],
                 ];
             $query->execute($parameters);
         }
