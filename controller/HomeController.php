@@ -56,7 +56,6 @@ class HomeController extends AbstractController
             'featuredPlayers' => $playersWithTeams,
             'lastMatch' => $lastMatch,
             'lastMatchTeams' => $lastMatchTeams,
-            'title' => 'The League - Accueil'
         ]);
     }
 }
