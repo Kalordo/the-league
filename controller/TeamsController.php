@@ -46,10 +46,9 @@ class TeamsController extends AbstractController
             if ($player->getTeam() == $id) {
                 $teamPlayers[] = $player;
             }
+            $mediaManager = new MediaManager();
+            $logo = $mediaManager->findOneMedia($player->getPortrait());
         }
-        
-        $mediaManager = new MediaManager();
-        $logo = $mediaManager->findOneMedia($team->getIdLogo());
         
         $this->render('teams/show.html.twig', [
             'team' => $team,

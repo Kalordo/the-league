@@ -1,6 +1,23 @@
-{% extends "templates/base.html.twig" %}
+
 
 {% block content %}
 
+ <main>
+        <article class="team-article">
+            <h3 class="team-title">{{ team.name }}</h3>
+            
+            {% for player in players %}
+                <section class="player-card">
+                    <div class="player-img">
+                        <img src="{{ logo.url }}" alt="{{ logo.alt }}" class="team-logo-img">
+                    </div>
+                    <div>
+                        <p class="team-description">{{ player.nickname }}</p>
+                    </div>
+                    <button class="team-button">DÉCOUVREZ {{ player.nickname }}</button>
+                </section>
+            {% endfor %}
+        </article>
+    </main>
 
 {% endblock %}
