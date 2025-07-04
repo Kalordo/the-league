@@ -5,6 +5,7 @@ class HomeController extends AbstractController
     public function __construct()
     {
         parent::__construct();
+        $this->playersManager = new PlayersManager();
     }
 
     private PlayersManager $playersManager;

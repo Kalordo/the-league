@@ -37,6 +37,8 @@
             
             $query->execute($parameters);
             
+            $team = $query->fetch(PDO::FETCH_ASSOC);
+
             if (!$team) {
             return null;
             }
