@@ -6,15 +6,15 @@
         <article class="team-article">
             <h3 class="team-title">{{ team.name }}</h3>
             
-            {% for player in players %}
-                <section class="player-card">
-                    <div class="player-img">
-                        <img src="{{ logo.url }}" alt="{{ logo.alt }}" class="team-logo-img">
+            {% for p in players %}
+                <section class="teamplayer-card">
+                    <div class="teamplayer-img">
+                        <img src="{{ p.logo.url }}" alt="{{ p.logo.alt }}" class="teamplayer-logo-img">
                     </div>
                     <div>
-                        <p class="team-description">{{ player.nickname }}</p>
+                        <p class="teamplayer-description">{{ p.player.nickname }}</p>
                     </div>
-                    <button class="team-button">DÉCOUVREZ {{ player.nickname }}</button>
+                    <button class="team-button">DÉCOUVREZ {{ p.player.nickname }}</button>
                 </section>
             {% endfor %}
         </article>

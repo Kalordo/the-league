@@ -40,14 +40,17 @@ class TeamsController extends AbstractController
         
         $playersManager = new PlayersManager();
         $allPlayers = $playersManager->findAll();
+        $mediaManager = new MediaManager();
         
         $teamPlayers = [];
         foreach ($allPlayers as $player) {
-            if ($player->getTeam() == $id) {
-                $teamPlayers[] = $player;
-            }
-            $mediaManager = new MediaManager();
             $logo = $mediaManager->findOneMedia($player->getPortrait());
+            if ($player->getTeam() == $id) {
+                $teamPlayers[] = [
+                    'player' => $player,
+                    'logo' => $logo
+                ];
+            }
         }
         
         $this->render('teams/show.html.twig', [

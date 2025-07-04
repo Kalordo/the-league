@@ -4,18 +4,16 @@
 
     <main>
         <article class="teams-grid">
-            {% for team in teams %}
+            {% for t in teams %}
                 <section class="team-card">
                     <div class="team-logo">
-                        {% for media in medias %}
-                            <img src="{{ media.url }}" alt="{{ media.alt }}" class="team-logo-img">
-                        {% endfor %}
+                        <img src="{{ t.logo.url }}" alt="{{ t.logo.alt }}" class="team-logo-img">
                     </div>
                     <div>
-                        <h3 class="team-name">{{ team.name }}</h3>
-                        <p class="team-description">{{ team.description }}</p>
+                        <h3 class="team-name">{{ t.team.name }}</h3>
+                        <p class="team-description">{{ t.team.description }}</p>
                     </div>
-                    <button class="team-button">DÉCOUVREZ {{ team.name }}</button>
+                    <button class="team-button">DÉCOUVREZ {{ t.team.name }}</button>
                 </section>
             {% endfor %}
         </article>
