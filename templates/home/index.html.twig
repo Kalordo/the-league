@@ -11,7 +11,7 @@
     <section>
         <h3> LA TEAM À LA UNE </h3>
         <article>
-            <img src="{{ featuredTeam.logo }}" alt="Logo de {{ featuredTeam.name }}">
+            <img src="{{ featuredTeam.logo.url }}" alt=" {{ featuredTeam.logo.alt }}">
             <h4>{{ featuredTeam.name }}</h4>
             <p>{{ featuredTeam.players }}</p>
         </article>
@@ -19,7 +19,7 @@
         <article>
             <img src="{{ featuredTeamPlayers.logo }}" alt="Logo de {{ featuredTeamPlayers }}">
             <h4>{{ featuredTeamPlayers.players }}</h4>
-            
+
         </article>
     </section>
 </main>

@@ -14,14 +14,21 @@ class HomeController extends AbstractController
     {
         $teamsManager = new TeamsManager();
         $teams = $teamsManager->findAllTeam();
+
+        $teamMedia = new MediaManager();
+        $teamLogo = $teamMedia->findOneMedia($teams[0]->getIdLogo());
         
-        $featuredTeam = $teams[0];
+        $featuredTeam = [
+            'team' => $teams[0],
+            'logo' => $teamLogo
+        ];
+
         $allPlayers = $this->playersManager->findAll();
 
         $featuredTeamPlayers = [];
         if ($featuredTeam) {
             foreach ($allPlayers as $player) {
-                if ($player->getTeam() == $featuredTeam->getId()) {
+                if ($player->getTeam() == $featuredTeam['team']->getId()) {
                     $featuredTeamPlayers[] = $player;
                 }
             }
@@ -57,6 +64,9 @@ class HomeController extends AbstractController
             'lastMatch' => $lastMatch,
             'lastMatchTeams' => $lastMatchTeams,
         ]);
+
+        var_dump($featuredTeam);
+
     }
 }
 ?>
