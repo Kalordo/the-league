@@ -1,6 +1,39 @@
-{% extends "templates/base.html.twig" %}
+{% extends "base.html.twig" %}
 
 {% block content %}
+<h2>
+    {{team1.getName() ~ "VS" ~ team2.getName()}}
+</h2>
+<h3>
+    {{ game.date|date("d/m/Y") }}
+</h3>
+<img src='{{logo1.url}}' alt='{{logo1.alt}}'>
+<img src='{{logo2.url}}' alt='{{logo2.alt}}'>
 
+<h3>
+    LES PERFORMANCES
+</h3>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">PLAYER</th>
+            <th scope="col">TEAM</th>
+            <th scope="col">POINTS</th>
+            <th scope="col">ASSISTS</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for performance in performances%}
+
+        <tr>
+            <td scope="row">{{performance.player.nickname}}</td>
+            <td scope="row">{{performance.team.name}}</td>
+            <td scope="row">{{performance.points}}</td>
+            <td scope="row">{{performance.assists}}</td>
+        </tr>
+                    
+        {%endfor%}
+    </tbody>
+</table>
 
 {% endblock %}
