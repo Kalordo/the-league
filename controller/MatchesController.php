@@ -48,6 +48,7 @@ class MatchesController extends AbstractController
         }
         
         $teamsManager = new TeamsManager();
+        $mediaManager = new MediaManager();
         
         $team1 = $teamsManager->findOneTeam($game->getTeam_1());
         $logo1 = $mediaManager->findOneMedia($team1->getIdLogo());

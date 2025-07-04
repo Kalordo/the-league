@@ -14,6 +14,7 @@ class TeamsController extends AbstractController
     {
         $teams = $this->teamsManager->findAllTeam();
         $teamsWithLogos = [];
+        $mediaManager = new MediaManager();
         
         foreach ($teams as $team) {
             $logo = $mediaManager->findOneMedia($team->getIdLogo());
