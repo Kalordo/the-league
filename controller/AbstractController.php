@@ -1,7 +1,6 @@
 <?php
 
 use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
 
 abstract class AbstractController
 {
@@ -9,8 +8,8 @@ abstract class AbstractController
     
     public function __construct()
     {
-        $loader = new FilesystemLoader(__DIR__ . '../templates/');
-        $this->twig = new Environment($loader);
+        $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates/');
+        $this->twig = new Twig\Environment($loader);
     }
     
     protected function render(string $template, array $data = []): void
