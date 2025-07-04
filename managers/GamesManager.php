@@ -33,6 +33,7 @@ class GamesManager extends AbstractManager {
 
         if ($gameResult) {
             $date = new DateTime($gameResult['date']);
+            $date->format('Y-m-d H:i:s');
             return new Games(
                 (int) $gameResult['id'],
                 $gameResult['name'],

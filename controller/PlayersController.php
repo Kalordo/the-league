@@ -87,7 +87,6 @@ class PlayersController extends AbstractController
         }
         
         $team = $teamsManager->findOneTeam($playerTeamId);
-        
         $this->render('players/show.html.twig', [
             'player' => $player,
             'team' => $team,
