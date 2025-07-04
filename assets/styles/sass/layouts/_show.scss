@@ -1,0 +1,55 @@
+main#show{
+
+    h1, h3{
+        color:$blue;
+    }
+    
+    h2{
+        color:$purple;
+    }
+    .player{
+        color:$pink;
+    }
+    table td:nth-child(1),
+    table th:nth-child(1) {
+      color: $yellow;
+    }
+    table td:nth-child(2),
+    table th:nth-child(2) {
+      color: $pink;
+    }
+    table td:nth-child(3),
+    table th:nth-child(3) {
+      color: $white;
+    }
+    table td:nth-child(4),
+    table th:nth-child(4) {
+      color: $white;
+    }
+    table {
+    width: 80%;
+    margin: 2rem auto;
+    border-collapse: collapse;
+    color: $white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    thead th {
+      padding: 1rem;
+      text-align: left;
+      font-weight: bold;
+      color: $purple;
+      font-size: 0.9rem;
+      border-bottom: 2px solid darken($darkerGrey, 5%);
+    }
+
+    tbody td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid $grey;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+    }
+    background-color:$darkerGrey;
+    text-align:center;
+
+}
