@@ -15,6 +15,7 @@ class MatchesController extends AbstractController
         $games = $this->gamesManager->findAll();
         
         $teamsManager = new TeamsManager();
+        $mediaManager = new MediaManager();
         $matchesWithDetails = [];
         
         foreach ($games as $game) {

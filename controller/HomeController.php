@@ -6,6 +6,8 @@ class HomeController extends AbstractController
     {
         parent::__construct();
     }
+
+    private PlayersManager $playersManager;
     
     public function index(): void
     {
@@ -13,7 +15,8 @@ class HomeController extends AbstractController
         $teams = $teamsManager->findAllTeam();
         
         $featuredTeam = $teams[0];
-        
+        $allPlayers = $this->playersManager->findAll();
+
         $featuredTeamPlayers = [];
         if ($featuredTeam) {
             foreach ($allPlayers as $player) {
